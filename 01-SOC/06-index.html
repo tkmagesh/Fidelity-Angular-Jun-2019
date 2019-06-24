@@ -28,8 +28,8 @@
 		};
 
 		//state & behavior
-		function SalaryCalculatorModel(){
-			var _data = {
+		class SalaryCalculatorModel{
+			_data = {
 				basic :0 ,
 				hra : 0,
 				da : 0,
@@ -37,7 +37,7 @@
 				salary : 0
 			};
 
-			var _subscribers = {
+			_subscribers = {
 				basic : null,
 				hra : null,
 				da : null,
@@ -45,34 +45,37 @@
 				salary : null
 			};
 
-			this.get = function(attrName){
-				return _data[attrName];
+			get(attrName){
+				return this._data[attrName];
 			};
 
-			this.set = function(attrName, value){
-				if (_data[attrName] === value) return;
-				_data[attrName] = value;
-				var subscriptionFn = _subscribers[attrName];
+			set(attrName, value){
+				if (this._data[attrName] === value) return;
+				this._data[attrName] = value;
+				let subscriptionFn = this._subscribers[attrName];
 				if (typeof subscriptionFn === 'function')
 					subscriptionFn();
 			};
 
-			this.subscribe = function(attrName, subscriptionFn){
-				_subscribers[attrName] = subscriptionFn;
+			calculate() {
+				let gross = this.get('basic') + this.get('hra') + this.get('da');
+				let net = gross * ((100-this.get('tax'))/100);
+				this.set('salary', net);
 			}
+
+			subscribe(attrName, subscriptionFn){
+				this._subscribers[attrName] = subscriptionFn
+			}
+
 		}
-		//behavior
-		SalaryCalculatorModel.prototype.calculate = function() {
-			var gross = this.get('basic') + this.get('hra') + this.get('da');
-			var net = gross * ((100-this.get('tax'))/100);
-			this.set('salary', net);
-		};
+		
 
 		//UI
 		$(function(){
 			
 			window['model'] = new SalaryCalculatorModel();
 
+			//Reacting to user actions
 			$('#txtBasic').change(function(){
 				model.set('basic', $(this).val().toInt());
 			});
@@ -94,6 +97,7 @@
 				model.calculate();
 			});
 
+			//Reacting to Model changes
 			model.subscribe('salary', function(){
 				$('#tdSalary').html(model.get('salary'));
 			});

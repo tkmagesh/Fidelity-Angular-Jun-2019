@@ -1,0 +1,10 @@
+<h3>Calculator-1</h3>
+ <hr>
+ <input type="number" (change)="n1 = $event.target.valueAsNumber)">
+ <input type="number" (change)="n2 = $event.target.valueAsNumber)">
+ <br>
+ <input type="button" value="Add" (click)="onAddClick()">
+ <input type="button" value="Subtract" (click)="onSubtractClick()">
+ <input type="button" value="Multiply" (click)="onMultiplyClick()">
+ <input type="button" value="Divide" (click)="onDivideClick()">
+ <div class="result">{{result}}</div>

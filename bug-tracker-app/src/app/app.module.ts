@@ -6,10 +6,13 @@ import { BugTrackerComponent } from './bugTracker/bugTracker.component';
 
 import { BugOperationsService } from './bugTracker/services/bugOperartions.service';
 
+import { TrimTextPipe } from './bugTracker/pipes/trimText.pipe';
+
 @NgModule({
   declarations: [
     AppComponent
     , BugTrackerComponent
+    , TrimTextPipe
   ],
   imports: [
     BrowserModule

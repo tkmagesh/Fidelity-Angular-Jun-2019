@@ -8,3 +8,5 @@ export class TrimTextPipe implements PipeTransform{
 		return data.length <= maxLength ? data : data.substr(0,maxLength) + '...';
 	}
 }
+
+

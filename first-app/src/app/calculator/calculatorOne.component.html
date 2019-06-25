@@ -7,4 +7,6 @@
  <input type="button" value="Subtract" (click)="model.subtract()">
  <input type="button" value="Multiply" (click)="model.multiply()">
  <input type="button" value="Divide" (click)="model.divide()">
- <div class="result">{{model.result}}</div>
+ <div [ngClass]="{ positive : model.result >=0, negative : model.result < 0 }">
+ 	{{model.result}}
+ </div>

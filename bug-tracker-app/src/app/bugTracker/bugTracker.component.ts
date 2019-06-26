@@ -15,7 +15,7 @@ export class BugTrackerComponent{
 		this.bugOperations = _bugOperations;
 	}*/
 
-	newBugName = '';
+	
 
 	sortBugBy : string = 'name';
 	sortBugDesc : boolean = false;
@@ -28,11 +28,9 @@ export class BugTrackerComponent{
 		this.bugs = this.bugOperations.getAll();
 	}
 
-	onAddNewClick(){
-		let newBug = this.bugOperations.createNew(this.newBugName);
+	onNewBugCreated(newBug : Bug){
 		this.bugs = [...this.bugs, newBug];
-		this.newBugName = '';
-	}
+	}	
 
 	onBugNameClick(bugToToggle : Bug){
 		let toggledBug = this.bugOperations.toggle(bugToToggle);

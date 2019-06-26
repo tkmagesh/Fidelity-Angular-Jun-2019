@@ -23,9 +23,9 @@
 				(click)="onBugNameClick(bug)"
 				[ngClass] = "{closed : bug.isClosed}"
 			>
-				{{bug | json}}
+				{{bug.name | trimText}}
 			</span>
-			<div class="datetime">[Created At]</div>
+			<div class="datetime">{{bug.createdAt | elapsed}}</div>
 		</li>
 	</ol>
 	<input type="button" value="Remove Closed" (click)="onRemoveClosedClick()">

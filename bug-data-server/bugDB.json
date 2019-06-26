@@ -8,11 +8,10 @@
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
     },
     {
-      "id": 5,
-      "name": "sadfdasfdas",
+      "id": 7,
+      "name": "This is bug - 4",
       "isClosed": false,
-      "createdAt": "2019-05-24T11:27:25.515Z",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
+      "createdAt": "2019-06-26T11:24:06.426Z"
     }
   ],
   "projects": [

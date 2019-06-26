@@ -21,10 +21,11 @@ export class BugTrackerComponent{
 	sortBugDesc : boolean = false;
 
 	constructor(private bugOperations : BugOperationsService){
-		this.bugs.push({name : 'Server communication failure', isClosed : true});
-		this.bugs.push({name : 'Application not responding', isClosed : false});
-		this.bugs.push({name : 'User actions not recognised', isClosed : false});
-		this.bugs.push({name : 'Data integrity checks failed', isClosed : true});
+		this.loadBugs();
+	}
+
+	private loadBugs(){
+		this.bugs = this.bugOperations.getAll();
 	}
 
 	onAddNewClick(){
@@ -39,7 +40,10 @@ export class BugTrackerComponent{
 	}
 
 	onRemoveClosedClick(){
-		this.bugs = this.bugs.filter(bug => !bug.isClosed);
+		this.bugs
+			.filter(bug => bug.isClosed)
+			.forEach(closedBug => this.bugOperations.remove(closedBug));
+		this.loadBugs();
 	}
 
 

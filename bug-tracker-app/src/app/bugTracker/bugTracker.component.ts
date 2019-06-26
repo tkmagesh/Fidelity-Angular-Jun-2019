@@ -15,6 +15,8 @@ export class BugTrackerComponent{
 		this.bugOperations = _bugOperations;
 	}*/
 
+	newBugName = '';
+
 	sortBugBy : string = 'name';
 	sortBugDesc : boolean = false;
 
@@ -25,20 +27,20 @@ export class BugTrackerComponent{
 		this.bugs.push({name : 'Data integrity checks failed', isClosed : true});
 	}
 
-	onAddNewClick(newBugName : string){
-		let newBug = this.bugOperations.createNew(newBugName);
-		this.bugs.push(newBug);
+	onAddNewClick(){
+		let newBug = this.bugOperations.createNew(this.newBugName);
+		this.bugs = [...this.bugs, newBug];
+		this.newBugName = '';
 	}
 
-	onBugNameClick(bug : Bug){
-		this.bugOperations.toggle(bug);
+	onBugNameClick(bugToToggle : Bug){
+		let toggledBug = this.bugOperations.toggle(bugToToggle);
+		this.bugs = this.bugs.map(bug => bug ===bugToToggle ? toggledBug : bug);
 	}
 
 	onRemoveClosedClick(){
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
 
-	getClosedCount(){
-		return this.bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
-	}
+
 }

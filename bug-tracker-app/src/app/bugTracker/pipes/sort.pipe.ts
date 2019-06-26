@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-	name: 'sort'
+	name: 'sort',
+	pure : true
 })
 export class SortPipe implements PipeTransform {
 
@@ -20,6 +21,7 @@ export class SortPipe implements PipeTransform {
 	}
 
 	transform(list: any[], attrName : string, isDescending : boolean = false): any[] {
+		console.log('sort.transform triggered');
 		if (!list || !list.length || !attrName) return list;
 		let comparer = this.getComparerFor(attrName);
 		if (isDescending)

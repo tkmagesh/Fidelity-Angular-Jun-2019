@@ -9,7 +9,8 @@ export class BugOperationsService{
 		return newBug;
 	}
 
-	toggle(bug : Bug) : void {
-		bug.isClosed = !bug.isClosed;
+	toggle(bugToToggle : Bug) : Bug {
+		let toggledBug = { ...bugToToggle, isClosed : !bugToToggle.isClosed};
+		return toggledBug;
 	}
 }

@@ -1,0 +1,28 @@
+{
+  "bugs": [
+    {
+      "id": 2,
+      "name": "This is bug - 2",
+      "isClosed": false,
+      "createdAt": "2019-05-24T10:26:33.396Z",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
+    },
+    {
+      "id": 5,
+      "name": "sadfdasfdas",
+      "isClosed": false,
+      "createdAt": "2019-05-24T11:27:25.515Z",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Bug Tracker"
+    },
+    {
+      "id": 2,
+      "name": "Payroll Master"
+    }
+  ]
+}
